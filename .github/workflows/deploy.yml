@@ -8,21 +8,14 @@ jobs:
   deqloy-img:
    name: Deploy an image
    runs-on: ubuntu-latest
-   container: ubuntu
-    services:
-      owaspsamm:
-        image: ${{ vars.DOCKER_IMAGE}}
-        ports:
-        - 3000:3000
    steps:
       - name: ShowVars
         run: |
          echo "Repository variable : $DOCKER_IMAGE"
       - name: Deploy
         run: |
-         apt-get update; apt-get install -y curl
-         # docker container run --detach --publish 3000  ${{ vars.DOCKER_IMAGE }}
-         # docker ps
+         docker container run --detach --publish 3000:3000  ${{ vars.DOCKER_IMAGE }}
+         docker ps
          ip route | grep docker0 | awk '{print $9}'
       - name: test
         run: |
