@@ -8,10 +8,12 @@ jobs:
   deqloy-img:
    name: Deploy an image
    runs-on: ubuntu-latest
-   container:
-      image: ${{ vars.DOCKER_IMAGE}}
-      ports:
-        - 3000
+   container: ubuntu
+    services:
+      owaspsamm:
+        image: ${{ vars.DOCKER_IMAGE}}
+        ports:
+        - 3000:3000
    steps:
       - name: ShowVars
         run: |
