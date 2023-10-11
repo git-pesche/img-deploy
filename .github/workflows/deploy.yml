@@ -18,6 +18,7 @@ jobs:
          echo "Repository variable : $DOCKER_IMAGE"
       - name: Deploy
         run: |
+         apt-get update; apt-get install -y curl
          # docker container run --detach --publish 3000  ${{ vars.DOCKER_IMAGE }}
          # docker ps
          ip route | grep docker0 | awk '{print $9}'
