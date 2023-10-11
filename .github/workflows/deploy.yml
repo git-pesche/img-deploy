@@ -15,11 +15,11 @@ jobs:
    steps:
       - name: ShowVars
         run: |
-         echo "Repository variable : $vars.DOCKER_IMAGE"
+         echo "Repository variable : $DOCKER_IMAGE"
       - name: Deploy
         run: |
-         --- docker container run --detach --publish 3000  ${{ vars.DOCKER_IMAGE }}
-         --- docker ps
+         # docker container run --detach --publish 3000  ${{ vars.DOCKER_IMAGE }}
+         # docker ps
          ip route | grep docker0 | awk '{print $9}'
       - name: test
         run: |
