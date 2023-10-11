@@ -11,8 +11,8 @@ jobs:
    steps:
       - name: ShowVars
         run: |
-         echo "Repository variable : $REPOSITORY_VAR"
-         
+         echo "Repository variable : $DOCKER_IMAGE"
+
       - name: Deploy
         run: |
          docker container run --detach --publish 3000:80  ${{ vars.DOCKER_IMAGE }}
