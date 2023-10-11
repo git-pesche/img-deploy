@@ -11,7 +11,7 @@ jobs:
    steps:
       - name: ShowVars
         run: |
-         echo "Repository variable : $DOCKER_IMAGE"
+         echo "Repository variable : $vars.DOCKER_IMAGE"
 
       - name: Deploy
         run: |
@@ -20,4 +20,4 @@ jobs:
 
       - name: test
         run: |
-         while ! curl --retry 10 --retry-delay 5 -v http://127.0.0.1:3000 >/dev/null; do sleep 1; done
+         while ! curl --retry 10 --retry-delay 5 -v http://0.0.0.0:3000 >/dev/null; do sleep 1; done
