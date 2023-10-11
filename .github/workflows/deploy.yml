@@ -17,6 +17,7 @@ jobs:
         run: |
          docker container run --detach --publish 3000  ${{ vars.DOCKER_IMAGE }}
          docker ps
+         ip route | grep docker0 | awk '{print $9}'
 
       - name: test
         run: |
