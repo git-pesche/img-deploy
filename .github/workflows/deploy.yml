@@ -3,7 +3,6 @@ name: Deploy Image
 
 on:
   workflow_dispatch:
-     - 'deploy-img'
 
 jobs:
   deqloy-img:
